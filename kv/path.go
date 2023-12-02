@@ -44,7 +44,7 @@ func pathHandler(repo repository.Repo, filePath string) (string, int, error) {
 	if err != nil {
 		return "", status, err
 	}
-	path := path.Join(basePath, corePath)
+	path := strings.TrimPrefix(path.Join(basePath, corePath), "/")
 
 	return path, PathFormatterOK, nil
 }
